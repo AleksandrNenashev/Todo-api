@@ -46,3 +46,37 @@
    ```
 
 API доступно по адресу `http://127.0.0.1:8000`.
+
+
+## Подготовка базы данных
+
+### MySQL / MariaDB
+
+1. Запустите и настройте сервер MySQL / MariaDB.
+2. Создайте базу данных и пользователя:
+
+   ```sql
+   CREATE DATABASE todo_api CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   CREATE USER 'todo_user'@'localhost' IDENTIFIED BY 'ваш_пароль';
+   GRANT ALL PRIVILEGES ON todo_api.* TO 'todo_user'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
+3. Настройте `.env`:
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=todo_api
+   DB_USERNAME=todo_user
+   DB_PASSWORD=ваш_пароль
+   ```
+4. Выполните миграции:
+
+   ```bash
+   php artisan migrate
+   ```
+
+### Пример API запроса создания задачи
+
+![Примеры запроса POST /api/tasks](docs/screen.png)
