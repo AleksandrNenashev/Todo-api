@@ -77,6 +77,6 @@ API доступно по адресу `http://127.0.0.1:8000`.
    php artisan migrate
    ```
 
-### Пример API запроса создания задачи
+### Примеры API запросов
 
-![Примеры запроса POST /api/tasks](docs/screen.png)
+![Примеры API запросов](docs/screen.png)
